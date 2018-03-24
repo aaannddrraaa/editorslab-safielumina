@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sa fie lumina - Harta</title>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <style>
+
+      /* Make the chart container fill the page using CSS. */
+      #chart {
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="map-container"></div>
+
+    <script>
+      // Extract the width and height that was computed by CSS.
+      var chartDiv = document.getElementById("map-container");
+      var width = chartDiv.clientWidth;
+      var height = chartDiv.clientHeight;
+
+      // load the external svg from a file
+      d3.xml("harta-romania.svg", "image/svg+xml", function(xml) {
+      var importedNode = document.importNode(xml.documentElement, true);
+      d3.select("div#map-container")
+        .each(function() {
+          this.appendChild(importedNode);
+        })
+        // inside of our d3.xml callback, call another function
+        // that styles individual paths inside of our imported svg
+        styleImportedSVG()
+      });
+
+      function styleImportedSVG () {
+        d3.select('svg')
+          .on('mouseover', function() {
+            console.log('mouseover');
+            console.log('this', this);
+            d3.selectAll('path')
+              .style({
+                'fill-opacity':   0.1,
+                'stroke-opacity': 0.3
+              })
+          })
+          .on('mouseout', function() {
+            console.log('mouseout');
+            d3.selectAll('path')
+              .style({
+                'fill-opacity':   1,
+                'stroke-opacity': 1
+              })
+          })
+      }
+    </script>
+  </body>
+</html>

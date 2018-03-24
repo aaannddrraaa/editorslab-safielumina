@@ -1,0 +1,96 @@
+body {
+	background: #0e0e0e;
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+#main-container {
+	width: 95%;
+	max-height: 90%;
+	margin:auto;
+	margin-top: 50px;
+}
+
+#map-container {
+  width:60%;  
+  padding: 20px;
+  float:left;  
+}
+
+#map-container .county {
+	fill: #f8a21a;
+	stroke: #e89512;
+	stroke-opacity: 0.4;
+}
+
+#map-container .county.hovered {
+	cursor: pointer;
+	stroke-opacity: 1;
+}
+
+#map-container .st1 {
+	opacity: 0;
+}
+
+#separator { 
+  float:left;
+  border:none;
+  color:white;
+  width:1px;
+  height: 90vh;
+  background:black;
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(gray), to(#0e0e0e));
+  background: -moz-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(gray), to(#0e0e0e));
+}
+
+div#tooltip {
+	position: absolute;
+	background: rgba(14, 14, 14, 0.9);
+	padding: 15px 20px;
+	border: 1px solid #e89512;
+	font-size: 16px;
+	color: gray;
+	opacity: 0;
+	width: 250px;
+}
+
+div#tooltip:after, div#tooltip:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+div#tooltip:after {
+	border-color: rgba(14, 14, 14, 0);
+	border-top-color: rgba(14, 14, 14, 1);
+	border-width: 15px;
+	margin-left: -15px;
+}
+div#tooltip:before {
+	border-color: rgba(232, 149, 18, 0);
+	border-top-color: #e89512;
+	border-width: 16px;
+	margin-left: -16px;
+}
+
+div#tooltip .head {
+	font-size: 18px;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	color: #fff;	
+}
+
+div#tooltip .head .county-name {
+	color: #e89512;
+	text-transform: uppercase;
+}
