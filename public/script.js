@@ -60,6 +60,14 @@ window.onload = function() {
             .transition().duration(50).style('opacity', 0);
         }, 50);        
       })
+      .on('click', function() {
+        const countyPathEl = window.d3.select(this);
+        const countyID = countyPathEl.attr('id');
+        if (countyID === 'PH') {
+          window.d3.select('.details-PH').style('display', 'block');
+          window.d3.select('.details-ALL').style('display', 'none');
+        }
+      })
       .each(function() {
         const countyPathEl = window.d3.select(this);
         const countyID = countyPathEl.attr('id');        
