@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
   	"dev": "pm2 start index.js --watch",
-    "start": "pm2 start index.js"
+    "start": "node index.js"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
