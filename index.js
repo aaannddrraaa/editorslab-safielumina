@@ -1,6 +1,12 @@
 const express = require('express');
 const port = process.env.PORT || 8080;
 const app = express();
+const Knex = require('knex');
+const { Model } = require('objection');
+const knexConfig = require('./knexfile');
+
+const knex = Knex(knexConfig.development);
+Model.knex(knex);
 
 app.use(express.static('public'));
 
